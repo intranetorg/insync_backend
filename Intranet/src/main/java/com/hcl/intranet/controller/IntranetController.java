@@ -36,6 +36,12 @@ public class IntranetController {
         return ResponseEntity.ok(intranetService.getEmployees());
     }
     
+    @GetMapping("/user")
+    public ResponseEntity<String> getUser() {
+    	LOG.info("Getting all employee list");
+        return ResponseEntity.ok("test user API");
+    }
+    
     @GetMapping("/employee/{sapId}")
     public ResponseEntity<Employee> getEmployee(@PathVariable String sapId) {
         return ResponseEntity.ok(intranetService.getEmployee(sapId));
@@ -43,6 +49,7 @@ public class IntranetController {
     
     @PostMapping("/employee")
     public ResponseEntity<Employee> addEmployee(@RequestBody Employee employee) {
+    	LOG.info("Create employee -----");
         return ResponseEntity.ok(intranetService.addEmployee(employee));
     }
     
